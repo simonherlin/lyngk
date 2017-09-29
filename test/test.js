@@ -7,5 +7,6 @@ LyngkTestCase.prototype.testStory1 = function(){
 
     assertFalse(coordinates.is_valid());
 
+    assertEquals(coordinates.number_valid(),43);
 
 };
