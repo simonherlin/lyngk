@@ -34,7 +34,18 @@ Lyngk.Coordinates = function (c, l) {
                 if (grid[i][j]==1)number++;
             }
         }
-        console.log(number);
         return number;
     };
+
+    this.representation = function (){
+        return (String.fromCharCode(colonnes+65)+(lignes+1));
+    }
+
+    this.setLigne = function(l){
+        if (l<=9 && l>0) {
+            lignes = l - 1;
+            return true;
+        }
+        return false;
+    }
 };
