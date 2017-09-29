@@ -38,8 +38,13 @@ Lyngk.Coordinates = function (c, l) {
     };
 
     this.representation = function (){
-        return (String.fromCharCode(colonnes+65)+(lignes+1));
-    }
+        if (grid[colonnes][lignes]==1){
+            return (String.fromCharCode(colonnes+65)+(lignes+1));
+        }
+        else{
+            return "invalid";
+        }
+    }; 
 
     this.setLigne = function(l){
         if (l<=9 && l>0) {
