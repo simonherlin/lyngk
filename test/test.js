@@ -16,4 +16,6 @@ LyngkTestCase.prototype.testStory1 = function(){
     assertEquals(coordinates.representation(),"A3");
 
     //histoire 4
+    coordinates.setLigne(1);
+    assertEquals(coordinates.representation(),"invalid");
 };
