@@ -21,6 +21,10 @@ LyngkTestCase.prototype.testStory1 = function(){
 
     //histoire 5
     var coordinates2 = coordinates.clone();
-    assertTrue(coordinates === coordinates2);
+    assertTrue(coordinates.representation() === coordinates2.representation());
+
+    //histoire 6
+    coordinates.setLigne(3);
+    assertTrue(coordinates.hash() === 2);
 
 };
