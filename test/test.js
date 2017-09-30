@@ -18,4 +18,9 @@ LyngkTestCase.prototype.testStory1 = function(){
     //histoire 4
     coordinates.setLigne(1);
     assertEquals(coordinates.representation(),"invalid");
+
+    //histoire 5
+    var coordinates2 = coordinates.clone();
+    assertTrue(coordinates === coordinates2);
+
 };
