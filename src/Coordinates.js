@@ -44,7 +44,11 @@ Lyngk.Coordinates = function (c, l) {
         else{
             return "invalid";
         }
-    }; 
+    };
+
+    this.clone = function(){
+        return new Lyngk.Coordinates(colonnes, lignes);
+    };
 
     this.setLigne = function(l){
         if (l<=9 && l>0) {
