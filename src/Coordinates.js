@@ -47,7 +47,7 @@ Lyngk.Coordinates = function (c, l) {
     };
 
     this.clone = function(){
-        return new Lyngk.Coordinates(colonnes, lignes);
+        return new Lyngk.Coordinates(String.fromCharCode(colonnes+65), lignes+1);
     };
 
     this.setLigne = function(l){
@@ -56,5 +56,5 @@ Lyngk.Coordinates = function (c, l) {
             return true;
         }
         return false;
-    }
+    };
 };
