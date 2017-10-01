@@ -27,4 +27,7 @@ LyngkTestCase.prototype.testStory1 = function(){
     coordinates.setLigne(3);
     assertTrue(coordinates.hash() === 2);
 
+    // hsitoire 7
+    assertTrue(coordinates.get_intersection() === "VACANT");
+
 };
