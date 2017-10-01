@@ -54,11 +54,4 @@ Lyngk.Coordinates = function (c, l) {
         return colonnes*10+lignes;
     };
 
-    this.setLigne = function(l){
-        if (l<=9 && l>0) {
-            lignes = l - 1;
-            return true;
-        }
-        return false;
-    };
 };
