@@ -13,8 +13,12 @@ Lyngk.Intersection = function (/*c*/) {
     };
 
     this.pose=function(couleur){
-        //nbPieces = new Lyngk.Piece(couleur);
-        state = Lyngk.State.ONE_PIECE;
+        if (nbPieces.length ==0){
+            state = Lyngk.State.ONE_PIECE;
+        }
+        else{
+            state = Lyngk.State.STACK;
+        }
         nbPieces.push(new Lyngk.Piece(couleur));
     };
 
