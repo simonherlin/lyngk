@@ -42,7 +42,15 @@ LyngkTestCase.prototype.testStory6 = function() {
 
 // hsitoire 7
 LyngkTestCase.prototype.testStory7 = function() {
-    var coordinates = new Lyngk.Coordinates('A', 3);
-    var intersection = new Lyngk.Intersection(coordinates);
+    //var coordinates = new Lyngk.Coordinates('A', 3);
+    var intersection = new Lyngk.Intersection(/*coordinates*/);
     assertTrue(intersection.getState() === Lyngk.State.VACANT);
+};
+
+//histoire 8
+LyngkTestCase.prototype.testStory8 = function () {
+    var intersect = new Lyngk.Intersection();
+    intersect.pose(Lyngk.Color.BLUE);
+    assertEquals(intersect.getState(),Lyngk.State.ONE_PIECE);
+    assertEquals(intersect.getColor(),Lyngk.Color.BLUE);
 };
