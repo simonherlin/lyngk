@@ -17,7 +17,12 @@ Lyngk.Intersection = function (/*c*/) {
             state = Lyngk.State.ONE_PIECE;
         }
         else{
-            state = Lyngk.State.STACK;
+            if (nbPieces.length < 4){
+                state = Lyngk.State.STACK;
+            }
+            else{
+                state = Lyngk.State.FULL_STACK;
+            }
         }
         nbPieces.push(new Lyngk.Piece(couleur));
     };
