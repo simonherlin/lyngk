@@ -57,9 +57,34 @@ LyngkTestCase.prototype.testStory8 = function () {
 
 //histoire 9
 LyngkTestCase.prototype.testhist9 = function () {
-        var intersect = new Lyngk.Intersection();
-        intersect.pose(Lyngk.Color.BLUE);
-        intersect.pose(Lyngk.Color.RED);
-        assertEquals(intersect.getState(),Lyngk.State.STACK);
-        assertEquals(intersect.getColor(),Lyngk.Color.RED);
+    var intersect = new Lyngk.Intersection();
+    intersect.pose(Lyngk.Color.BLUE);
+    intersect.pose(Lyngk.Color.RED);
+    assertEquals(intersect.getState(),Lyngk.State.STACK);
+    assertEquals(intersect.getColor(),Lyngk.Color.RED);
+};
+
+// histoire 10
+LyngkTestCase.prototype.testhist10 = function () {
+    var intersect = new Lyngk.Intersection();
+    intersect.pose(Lyngk.Color.BLUE);
+    intersect.pose(Lyngk.Color.RED);
+    intersect.pose(Lyngk.Color.GREEN);
+    intersect.pose(Lyngk.Color.BLACK);
+    intersect.pose(Lyngk.Color.WHITE);
+    assertEquals(intersect.getState(),Lyngk.State.FULL_STACK);
+};
+
+// histoire 11
+LyngkTestCase.prototype.testhist11 = function () {
+    var engine = new Lyngk.Engine();
+    var intersect = engine.getIntersect();
+    for (var i = 0; i<9;i++){
+        for (var j =0;j<9;j++){
+            var coordinates = new Lyngk.Coordinates(65+i, j);
+            if (coordinates.is_valid()){
+                assertEquals(intersect[coordinates.hash()],Lyngk.State.ONE_PIECE);
+            }
+        }
+    }
 };
