@@ -37,7 +37,7 @@ LyngkTestCase.prototype.testStory5 = function() {
 //histoire 6
 LyngkTestCase.prototype.testStory6 = function() {
     var coordinates = new Lyngk.Coordinates('A', 3);
-    assertTrue(coordinates.hash() === 2);
+    assertTrue(coordinates.hash() === 13);
 };
 
 // hsitoire 7
@@ -77,14 +77,7 @@ LyngkTestCase.prototype.testhist10 = function () {
 
 // histoire 11
 LyngkTestCase.prototype.testhist11 = function () {
-    var engine = new Lyngk.Engine();
-    var intersect = engine.getIntersect();
-    for (var i = 0; i<9;i++){
-        for (var j =0;j<9;j++){
-            var coordinates = new Lyngk.Coordinates(65+i, j);
-            if (coordinates.is_valid()){
-                assertEquals(intersect[coordinates.hash()],Lyngk.State.ONE_PIECE);
-            }
-        }
-    }
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationUnePiece();
+    assertEquals(plateau.full(),43);
 };
