@@ -23,20 +23,15 @@ Lyngk.Engine = function () {
         }
     };
 
-    this.full = function (){
-        var valid=0;
-        var keys = Object.keys(plateau);
+    this.full = function () {
+        for (var key in plateau) {
+            if (plateau.hasOwnProperty(key)) {
+                if (plateau[key].getState() != Lyngk.State.ONE_PIECE) {
+                    return false;
+                }
 
-        for (var i = 0; i < keys.length; i++) {
-            if (plateau[keys[i]].getState() === Lyngk.State.ONE_PIECE){
-                valid++;
             }
-
         }
-        return valid;
-        if (valid== 43){
-            return true;
-        }
-        return false;
+        return true;
     };
 };

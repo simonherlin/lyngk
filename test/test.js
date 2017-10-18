@@ -79,5 +79,5 @@ LyngkTestCase.prototype.testhist10 = function () {
 LyngkTestCase.prototype.testhist11 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationUnePiece();
-    assertEquals(plateau.full(),43);
+    assertTrue(plateau.full());
 };
