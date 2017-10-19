@@ -34,4 +34,23 @@ Lyngk.Engine = function () {
         }
         return true;
     };
+
+    this.initialisationMultiCouleur = function() {
+        //var couleurDispo = {};
+        var couleurDispo = [8,8,8,8,8,3];
+        for (var key in plateau) {
+            if (plateau.hasOwnProperty(key)) {
+                var randomCouleur;
+                do{
+                    randomCouleur = Math.floor(Math.random() * 6);
+                }while(couleurDispo[randomCouleur] <= 0);
+                couleurDispo[randomCouleur]--;
+                plateau[key].pose(randomCouleur);
+            }
+        }
+    };
+
+    this.getPlat = function(){
+        return plateau;
+    }
 };

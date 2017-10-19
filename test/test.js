@@ -87,16 +87,17 @@ LyngkTestCase.prototype.testhist12 = function() {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
     var jeu = plateau.getPlat();
+    //var nombreCouleur = {"BLACK": 0, "IVORY": 0, "BLUE": 0, "RED": 0, "GREEN": 0, "WHITE": 0};
     var nombreCouleur = [0,0,0,0,0,0];
     for (var key in jeu) {
         if (jeu.hasOwnProperty(key))
-            nombreCouleur[jeu[key].getColor()];
+            nombreCouleur[jeu[key].getColor()]++;
     }
     var testCouleur = true;
     for(var i = 0; i < nombreCouleur.length; i++) {
         if(i < 5 && nombreCouleur[i] != 8)
             testCouleur = false;
-        if(i == 5 && colorNumber[i] != 3)
+        if(i == 5 && nombreCouleur[i] != 3)
             testCouleur = false;
     }
     assertTrue(testCouleur);
