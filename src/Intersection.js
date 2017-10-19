@@ -11,7 +11,7 @@ Lyngk.Intersection = function () {
         //}
     };
 
-    this.pose=function(couleur){
+    this.pose = function(couleur){
         if (nbPieces.length ==0){
             state = Lyngk.State.ONE_PIECE;
         }
@@ -26,8 +26,11 @@ Lyngk.Intersection = function () {
         nbPieces.push(new Lyngk.Piece(couleur));
     };
 
-    this.getColor=function(){
+    this.getColor = function(){
         return nbPieces[nbPieces.length-1].getColor();
+    };
+    this.getHauteur = function(){
+        return nbPieces.length;
     };
 
 };
