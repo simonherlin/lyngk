@@ -8,11 +8,10 @@ Lyngk.Intersection = function () {
 
     this.getState = function() {
                 return state;
-        //}
     };
 
-    this.pose = function(couleur){
-        if (nbPieces.length ==0){
+    function valueState() {
+        if (nbPieces.length ==0 || nbPieces == undefined){
             state = Lyngk.State.ONE_PIECE;
         }
         else{
@@ -23,14 +22,26 @@ Lyngk.Intersection = function () {
                 state = Lyngk.State.FULL_STACK;
             }
         }
+    }
+
+    this.pose = function(couleur){
+        valueState();
         nbPieces.push(new Lyngk.Piece(couleur));
     };
 
+    this.remove = function(){
+        nbPieces = nbPieces.shift();
+        valueState();
+    };
+
     this.getColor = function(){
-        return nbPieces[nbPieces.length-1].getColor();
+        return nbPieces[nbPieces.length -1].getColor();
+    };
+
+    this.getFirstColor = function(){
+        return nbPieces[0].getColor();
     };
     this.getHauteur = function(){
         return nbPieces.length;
     };
-
 };

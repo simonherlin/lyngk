@@ -19,8 +19,6 @@ Lyngk.Coordinates = function (c, l) {
         colonnes = (c.charCodeAt(0))-65 + 1;
         lignes = l;
     };
-
-
     Init(c,l);
 
     this.is_valid  = function(){

@@ -132,7 +132,11 @@ LyngkTestCase.prototype.testhist15 = function () {
     var jeu = plateau.getPlat();
     var coordoBase = new Lyngk.Coordinates('A', 3);
     var coordoFin = new Lyngk.Coordinates('B', 3);
-    var couleurBase = plateau[coordoBase.hash()].getColor();
-    jeu.move(coordoBase,coordoFin);
-    assertTrue(plateau[coordoFin.hash()].getColor()===couleurBase && plateau[coordoBase].getState()==Lyngk.State.VACANT);
+    var couleurBase = jeu[coordoBase.hash()].getColor();
+    //jeu = plateau.getPlat();
+    plateau.move(coordoBase,coordoFin);
+    jeu = plateau.getPlat();
+    debugger;
+    assertEquals(jeu[coordoFin.hash()].getColor(),couleurBase );
+    //assertEquals(/*jeu[coordoFin.hash()].getColor()===couleurBase &&*/ jeu[coordoBase.hash()].getState(),Lyngk.State.VACANT);
 };
