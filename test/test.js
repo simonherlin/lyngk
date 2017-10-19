@@ -2,7 +2,7 @@
 
 var LyngkTestCase = TestCase("LyngkTestCase");
 
-
+// Partie 1
 // histoire 1
 LyngkTestCase.prototype.testStory1 = function() {
     var coordinates = new Lyngk.Coordinates('A', 1);
@@ -101,4 +101,24 @@ LyngkTestCase.prototype.testhist12 = function() {
             testCouleur = false;
     }
     assertTrue(testCouleur);
+};
+
+// Partie 2
+//histoire 13
+LyngkTestCase.prototype.testhist13 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var jeu = plateau.getPlat();
+    for (var key in jeu) {
+        assertEquals(jeu[key].getHauteur(),1);
+    }
+};
+
+//histoire 14
+LyngkTestCase.prototype.testhist14 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var jeu = plateau.getPlat();
+    jeu[13].pose(Lyngk.Color.BLUE);
+    assertEquals(Lyngk.Color.BLUE,jeu[13].getColor());
 };
