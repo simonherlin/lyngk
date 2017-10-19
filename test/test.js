@@ -119,6 +119,8 @@ LyngkTestCase.prototype.testhist14 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
     var jeu = plateau.getPlat();
-    jeu[13].pose(Lyngk.Color.BLUE);
-    assertEquals(Lyngk.Color.BLUE,jeu[13].getColor());
+    for (var key in jeu){
+        jeu[key].pose(Lyngk.Color.BLUE);
+        assertEquals(Lyngk.Color.BLUE,jeu[key].getColor());
+    }
 };
