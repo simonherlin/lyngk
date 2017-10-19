@@ -124,3 +124,15 @@ LyngkTestCase.prototype.testhist14 = function () {
         assertEquals(Lyngk.Color.BLUE,jeu[key].getColor());
     }
 };
+
+//histoire 15
+LyngkTestCase.prototype.testhist15 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var jeu = plateau.getPlat();
+    var coordoBase = new Lyngk.Coordinates('A', 3);
+    var coordoFin = new Lyngk.Coordinates('B', 3);
+    var couleurBase = plateau[coordoBase.hash()].getColor();
+    jeu.move(coordoBase,coordoFin);
+    assertTrue(plateau[coordoFin.hash()].getColor()===couleurBase && plateau[coordoBase].getState()==Lyngk.State.VACANT);
+};
