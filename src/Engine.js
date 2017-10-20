@@ -31,6 +31,11 @@ Lyngk.Engine = function () {
         return false;
     };
 
+    function testHauteur(debut,fin){
+        if ((plateau[debut].getHauteur() + plateau[fin].getHauteur()) <=5) return true;
+        else return false;
+    };
+
     this.initialisationUnePiece = function() {
         for (var key in plateau) {
             if (plateau.hasOwnProperty(key)) {
@@ -62,8 +67,8 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())))// test position et ligne diagonal
-            return false;
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash()))) return false;// test position et ligne diagonal
+        if (!testHauteur(base.hash(),fin.hash())) return false;
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
@@ -72,7 +77,12 @@ Lyngk.Engine = function () {
         return true;
     };
 
+    this.put = function(coordonee,couleur){
+        if (coordonee.is_valid() && plateau[coordonee.hash()].getHauteur()<4)
+            plateau[coordonee.hash()].pose(couleur);
+    };
+
     this.getPlat = function(){
         return plateau;
-    }
+    };
 };
