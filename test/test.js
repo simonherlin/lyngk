@@ -193,12 +193,12 @@ LyngkTestCase.prototype.testhist18 = function () {
 LyngkTestCase.prototype.testhist18 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
-    var coordo1 = new Lyngk.Coordinates('A', 3);
-    var coordo2 = new Lyngk.Coordinates('B', 3);
-    var coordo3 = new Lyngk.Coordinates('B', 2);
-    var coordo4 = new Lyngk.Coordinates('B', 4);
-    var coordo5 = new Lyngk.Coordinates('B', 5);
-    var coordo6 = new Lyngk.Coordinates('D', 5);
+    var coordo1 = new Lyngk.Coordinates('I', 7);
+    var coordo2 = new Lyngk.Coordinates('H', 6);
+    var coordo3 = new Lyngk.Coordinates('H', 5);
+    var coordo4 = new Lyngk.Coordinates('H', 8);
+    var coordo5 = new Lyngk.Coordinates('F', 5);
+    var coordo6 = new Lyngk.Coordinates('F', 3);
     assertTrue(plateau.move(coordo1,coordo2));
     assertTrue(plateau.move(coordo2,coordo3));
     assertFalse(plateau.move(coordo3,coordo4));

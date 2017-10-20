@@ -25,17 +25,11 @@ Lyngk.Engine = function () {
 
     function testLigne(debut,fin){
         var resultat = Math.abs(fin-debut);
-        if (resultat<10){ // verification que se soit que les decimal qui change
-            return true
-        }
-        if ((fin - Math.floor(fin/10)*10) == (debut - Math.floor(debut/10)*10)){ // verification que se soit que les dizaines qui change
-            return true;
-        }
-        if ((Math.floor(resultat/10)) == (resultat - Math.floor(resultat/10)*10)){ // verification diagonal
-            return true;
-        }
+        if ((resultat<10)&&(resultat ==1)) return true;// verification que se soit que les decimal qui change et que de 1
+        if (((fin - Math.floor(fin/10)*10) == (debut - Math.floor(debut/10)*10)) && (Math.abs(Math.floor(debut/10) - Math.floor(fin/10)) == 1)) return true;// verification que se soit que les dizaines qui change // verif deplacement que de 1 en dizaine
+        if (((Math.floor(resultat/10)) == (resultat - Math.floor(resultat/10)*10)) && (Math.floor(resultat/10) == 1)) return true; // verification diagonal
         return false;
-    }
+    };
 
     this.initialisationUnePiece = function() {
         for (var key in plateau) {
@@ -46,19 +40,14 @@ Lyngk.Engine = function () {
     };
 
     this.full = function () {
-        for (var key in plateau) {
-            if (plateau.hasOwnProperty(key)) {
-                if (plateau[key].getState() != Lyngk.State.ONE_PIECE) {
+        for (var key in plateau)
+            if (plateau.hasOwnProperty(key))
+                if (plateau[key].getState() != Lyngk.State.ONE_PIECE)
                     return false;
-                }
-
-            }
-        }
         return true;
     };
 
     this.initialisationMultiCouleur = function() {
-        //var couleurDispo = {};
         var couleurDispo = [8,8,8,8,8,3];
         for (var key in plateau) {
             if (plateau.hasOwnProperty(key)) {
@@ -73,9 +62,7 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())))// test position
-            return false;
-        if (plateau[fin.hash()].getState() === Lyngk.State.VACANT)// test ligne diagonal
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())))// test position et ligne diagonal
             return false;
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
