@@ -190,7 +190,7 @@ LyngkTestCase.prototype.testhist18 = function () {
 };
 
 // histoire 19
-LyngkTestCase.prototype.testhist18 = function () {
+LyngkTestCase.prototype.testhist19 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
     var coordo1 = new Lyngk.Coordinates('I', 7);
@@ -203,4 +203,20 @@ LyngkTestCase.prototype.testhist18 = function () {
     assertTrue(plateau.move(coordo2,coordo3));
     assertFalse(plateau.move(coordo3,coordo4));
     assertFalse(plateau.move(coordo5,coordo6));
+};
+
+// histoire 20
+LyngkTestCase.prototype.testhist20 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var coordo1 = new Lyngk.Coordinates('B', 2);
+    var coordo2 = new Lyngk.Coordinates('C', 2);
+    var coordo3 = new Lyngk.Coordinates('D', 2);
+    var coordo4 = new Lyngk.Coordinates('E', 2);
+    var jeu = plateau.getPlat();
+    jeu[coordo1.hash()].pose(Lyngk.Color.BLUE);
+    jeu[coordo1.hash()].pose(Lyngk.Color.BLACK);
+    assertTrue(plateau.move(coordo1,coordo2));
+    assertTrue(plateau.move(coordo2,coordo3));
+    assertFalse(plateau.move(coordo3,coordo4));
 };
