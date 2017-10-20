@@ -170,7 +170,21 @@ LyngkTestCase.prototype.testhist17 = function () {
     var coordo5 = new Lyngk.Coordinates('C', 5);
     assertTrue(plateau.move(coordo1,coordo2));
     assertFalse(plateau.move(coordo2,coordo1));
+};
+
+// histoire 18
+LyngkTestCase.prototype.testhist18 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var coordo1 = new Lyngk.Coordinates('A', 3);
+    var coordo2 = new Lyngk.Coordinates('B', 3);
+    var coordo3 = new Lyngk.Coordinates('B', 2);
+    var coordo4 = new Lyngk.Coordinates('A', 1);
+    var coordo5 = new Lyngk.Coordinates('C', 5);
+    assertTrue(plateau.move(coordo1,coordo2));
+    assertFalse(plateau.move(coordo2,coordo1));
     assertFalse(plateau.move(coordo2,coordo4));
     assertFalse(plateau.move(coordo2,coordo5));
     assertTrue(plateau.move(coordo2,coordo3));
+    assertFalse(plateau.move(coordo3,coordo3));
 };
