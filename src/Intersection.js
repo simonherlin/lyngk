@@ -44,14 +44,13 @@ Lyngk.Intersection = function () {
         }
     };
 
-
     this.pose = function(couleur){
         valuePose();
         nbPieces.push(new Lyngk.Piece(couleur));
     };
 
     this.remove = function(){
-        nbPieces = nbPieces.shift();
+        nbPieces.shift();
         valueRemove();
     };
 

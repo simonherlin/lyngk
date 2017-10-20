@@ -136,8 +136,25 @@ LyngkTestCase.prototype.testhist15 = function () {
     //jeu = plateau.getPlat();
     plateau.move(coordoBase,coordoFin);
     jeu = plateau.getPlat();
-    //assertEquals(jeu[coordoFin.hash()].getColor(),couleurBase );
     assertTrue(jeu[coordoFin.hash()].getColor()===couleurBase
         && jeu[coordoBase.hash()].getState()==Lyngk.State.VACANT
         && jeu[coordoFin.hash()].getHauteur() == 2);
+};
+
+//histoire 16
+LyngkTestCase.prototype.testhist16 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var jeu = plateau.getPlat();
+    var coordo1 = new Lyngk.Coordinates('A', 3);
+    var coordo2 = new Lyngk.Coordinates('B', 3);
+    var coordo3 = new Lyngk.Coordinates('B', 2);
+    var couleurBase = jeu[coordo1.hash()].getColor();
+    plateau.move(coordo1,coordo2);
+    plateau.move(coordo2,coordo3);
+    jeu = plateau.getPlat();
+    assertTrue(jeu[coordo3.hash()].getColor()===couleurBase
+        && jeu[coordo1.hash()].getState()==Lyngk.State.VACANT
+        && jeu[coordo2.hash()].getState()==Lyngk.State.VACANT
+        && jeu[coordo3.hash()].getHauteur() == 3);
 };
