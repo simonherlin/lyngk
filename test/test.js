@@ -217,7 +217,18 @@ LyngkTestCase.prototype.testhist20 = function () {
     var jeu = plateau.getPlat();
     assertEquals(jeu[coordo2.hash()].getHauteur(),4);
     assertTrue(plateau.move(coordo2,coordo3));
-    var jeu = plateau.getPlat();
+    jeu = plateau.getPlat();
     assertEquals(jeu[coordo3.hash()].getHauteur(),5);
     assertFalse(plateau.move(coordo3,coordo4));
+};
+
+// histoire 21
+LyngkTestCase.prototype.testhist20 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var coordo1 = new Lyngk.Coordinates('A', 3);
+    var coordo2 = new Lyngk.Coordinates('B', 3);
+    var coordo3 = new Lyngk.Coordinates('C', 3);
+    assertTrue(plateau.move(coordo1,coordo2));
+    assertFalse(plateau.move(coordo3,coordo2));
 };

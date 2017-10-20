@@ -36,6 +36,11 @@ Lyngk.Engine = function () {
         else return false;
     };
 
+    function testDifHauteur(debut,fin){
+      if (plateau[debut].getHauteur() < plateau[fin].getHauteur()) return false;
+      else return true;
+    };
+
     this.initialisationUnePiece = function() {
         for (var key in plateau) {
             if (plateau.hasOwnProperty(key)) {
@@ -67,8 +72,7 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash()))) return false;// test position et ligne diagonal
-        if (!testHauteur(base.hash(),fin.hash())) return false;
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
