@@ -10,8 +10,8 @@ Lyngk.Intersection = function () {
                 return state;
     };
 
-    function valueState() {
-        if (nbPieces.length ==0 || nbPieces == undefined){
+    function valuePose() {
+        if (nbPieces.length ==0 ){
             state = Lyngk.State.ONE_PIECE;
         }
         else{
@@ -22,16 +22,37 @@ Lyngk.Intersection = function () {
                 state = Lyngk.State.FULL_STACK;
             }
         }
-    }
+    };
+
+    function valueRemove() {
+        if (nbPieces.length ==0 || nbPieces.length == undefined){
+            state = Lyngk.State.VACANT;
+        }
+        else{
+            if(nbPieces.length == 1){
+                state = Lyngk.State.ONE_PIECE;
+            }
+            else
+            {
+                if (nbPieces.length < 4) {
+                    state = Lyngk.State.STACK;
+                }
+                else {
+                    state = Lyngk.State.FULL_STACK;
+                }
+            }
+        }
+    };
+
 
     this.pose = function(couleur){
-        valueState();
+        valuePose();
         nbPieces.push(new Lyngk.Piece(couleur));
     };
 
     this.remove = function(){
         nbPieces = nbPieces.shift();
-        valueState();
+        valueRemove();
     };
 
     this.getColor = function(){

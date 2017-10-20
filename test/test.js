@@ -136,7 +136,8 @@ LyngkTestCase.prototype.testhist15 = function () {
     //jeu = plateau.getPlat();
     plateau.move(coordoBase,coordoFin);
     jeu = plateau.getPlat();
-    debugger;
-    assertEquals(jeu[coordoFin.hash()].getColor(),couleurBase );
-    //assertEquals(/*jeu[coordoFin.hash()].getColor()===couleurBase &&*/ jeu[coordoBase.hash()].getState(),Lyngk.State.VACANT);
+    //assertEquals(jeu[coordoFin.hash()].getColor(),couleurBase );
+    assertTrue(jeu[coordoFin.hash()].getColor()===couleurBase
+        && jeu[coordoBase.hash()].getState()==Lyngk.State.VACANT
+        && jeu[coordoFin.hash()].getHauteur() == 2);
 };

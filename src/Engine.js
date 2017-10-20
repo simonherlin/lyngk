@@ -52,7 +52,6 @@ Lyngk.Engine = function () {
 
     this.move = function(base, fin){
         for (var i=0;i<plateau[base.hash()].getHauteur();i++) {
-            debugger;
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
             plateau[base.hash()].remove();
         }
