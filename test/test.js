@@ -223,7 +223,7 @@ LyngkTestCase.prototype.testhist20 = function () {
 };
 
 // histoire 21
-LyngkTestCase.prototype.testhist20 = function () {
+LyngkTestCase.prototype.testhist21 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
     var coordo1 = new Lyngk.Coordinates('A', 3);
@@ -234,7 +234,7 @@ LyngkTestCase.prototype.testhist20 = function () {
 };
 
 //histoire 22
-LyngkTestCase.prototype.testhist20 = function () {
+LyngkTestCase.prototype.testhist22 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
     var coordo1 = new Lyngk.Coordinates('I', 7);
@@ -246,4 +246,9 @@ LyngkTestCase.prototype.testhist20 = function () {
     assertTrue(plateau.move(coordo3,coordo4));
     assertTrue(plateau.move(coordo4,coordo5));
     assertFalse(plateau.move(coordo2,coordo5));
+};
+
+// histoire 23
+LyngkTestCase.prototype.testhist22 = function () {
+
 };
