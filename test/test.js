@@ -232,3 +232,18 @@ LyngkTestCase.prototype.testhist20 = function () {
     assertTrue(plateau.move(coordo1,coordo2));
     assertFalse(plateau.move(coordo3,coordo2));
 };
+
+//histoire 22
+LyngkTestCase.prototype.testhist20 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var coordo1 = new Lyngk.Coordinates('I', 7);
+    var coordo2 = new Lyngk.Coordinates('H', 6);
+    var coordo3 = new Lyngk.Coordinates('G', 4);
+    var coordo4 = new Lyngk.Coordinates('G', 5);
+    var coordo5 = new Lyngk.Coordinates('G', 6);
+    assertTrue(plateau.move(coordo1,coordo2));
+    assertTrue(plateau.move(coordo3,coordo4));
+    assertTrue(plateau.move(coordo4,coordo5));
+    assertFalse(plateau.move(coordo2,coordo5));
+};
