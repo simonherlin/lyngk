@@ -41,6 +41,16 @@ Lyngk.Engine = function () {
       else return true;
     };
 
+    function testColor(debut,fin){
+        for(var i=0;i<plateau[debut].getHauteur();i++){
+            for(var j=0;j<plateau[fin].getHauteur();j++){
+                if (plateau[debut].getCouleurChoix(i) == plateau[fin].getCouleurChoix(j))
+                    if (plateau[debut].getCouleurChoix(i) != Lyngk.Color.WHITE) return false;
+            }
+        }
+        return true;
+    };
+
     this.initialisationUnePiece = function() {
         for (var key in plateau) {
             if (plateau.hasOwnProperty(key)) {
@@ -72,7 +82,9 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur        debugger;
+        debugger;
+        if(!testColor(base.hash(),fin.hash())) return false; // test que les couleurs sont correct
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());

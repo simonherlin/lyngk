@@ -61,6 +61,11 @@ Lyngk.Intersection = function () {
     this.getFirstColor = function(){
         return nbPieces[0].getColor();
     };
+
+    this.getCouleurChoix = function(nb){
+        return nbPieces[nb].getColor();
+    };
+
     this.getHauteur = function(){
         return nbPieces.length;
     };
