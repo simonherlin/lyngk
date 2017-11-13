@@ -329,4 +329,19 @@ LyngkTestCase.prototype.testhist26 = function () {
     plateau.move(coordo6,coordo8);
     plateau.move(coordo7,coordo9);
     assertTrue(plateau.nbPointJoueur(1) == 1);
+    assertTrue(plateau.getNbPiece() == 38);
+};
+
+ // histoire 28
+LyngkTestCase.prototype.testhist27 = function () {
+    var plateau = new Lyngk.Engine();
+    var coordo1 = new Lyngk.Coordinates('B', 5);
+    var coordo2 = new Lyngk.Coordinates('B', 4);
+    var coordo3 = new Lyngk.Coordinates('A', 3);
+    plateau.put(coordo1,Lyngk.Color.BLUE);
+    plateau.put(coordo2,Lyngk.Color.BLACK);
+    plateau.put(coordo3,Lyngk.Color.RED);
+    plateau.claim(Lyngk.Color.RED);
+    plateau.move(coordo1,coordo2);
+    assertFalse(plateau.move(coordo2,coordo3));
 };
