@@ -4,11 +4,13 @@
 Lyngk.Color = {BLACK: 0, IVORY: 1, BLUE: 2, RED: 3, GREEN: 4, WHITE: 5};
 
 Lyngk.Engine = function () {
-    var key= []; var value=[];
+    //var key= []; var value=[];
+    var numPlayer;
     var plateau = new Object();   //
     plateau = {};
 
     var Init = function () {
+        numPlayer = 1;
         for (var i = 0; i < Lyngk.grid.length; i++) {
             plateau[Lyngk.grid[i]] = new Lyngk.Intersection();
         }
@@ -51,6 +53,11 @@ Lyngk.Engine = function () {
         return true;
     };
 
+    function player(){
+      if (numPlayer == 1) numPlayer++;
+      else numPlayer--;
+    };
+
     this.initialisationUnePiece = function() {
         for (var key in plateau) {
             if (plateau.hasOwnProperty(key)) {
@@ -82,14 +89,13 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur        debugger;
-        debugger;
-        if(!testColor(base.hash(),fin.hash())) return false; // test que les couleurs sont correct
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash())) || (!testColor(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
             plateau[base.hash()].remove();
         }
+        player();
         return true;
     };
 
@@ -101,4 +107,6 @@ Lyngk.Engine = function () {
     this.getPlat = function(){
         return plateau;
     };
+
+    this.getNumPlayer = function() {return numPlayer};
 };

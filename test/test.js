@@ -265,3 +265,9 @@ LyngkTestCase.prototype.testhist23 = function () {
     assertTrue(plateau.move(coordo1,coordo3));
     assertFalse(plateau.move(coordo3,coordo4));
 };
+
+//histoire 24
+LyngkTestCase.prototype.testhist24 = function () {
+    var plateau = new Lyngk.Engine();
+    assertTrue(plateau.getNumPlayer() == 1);
+};
