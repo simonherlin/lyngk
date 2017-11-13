@@ -9,10 +9,12 @@ Lyngk.Engine = function () {
     var colorByPlayer = [];
     var pointByPlayer = [];
     var plateau = new Object();
+    var nbPieces;
     plateau = {};
 
     var Init = function () {
         numPlayer = 1;
+        nbPieces = 43;
         for (var i = 0; i < Lyngk.grid.length; i++) { plateau[Lyngk.grid[i]] = new Lyngk.Intersection(); }
         for (var i =0; i < 6;i++)   { colorByPlayer[i]=0; }
         for (var i =1; i<3;i++)     { pointByPlayer[i] = 0; }
@@ -62,8 +64,18 @@ Lyngk.Engine = function () {
 
     function point(coordo){
         if (plateau[coordo.hash()].getHauteur() == 5)
-            if (colorByPlayer[plateau[coordo.hash()].getColor()] == numPlayer)
+            if (colorByPlayer[plateau[coordo.hash()].getColor()] == numPlayer){
                 pointByPlayer[numPlayer]++;
+                nbPieces -= plateau[coordo.hash()].getHauteur();
+            }
+    };
+
+    function testColor(coordo){
+        var tempo;
+        if (numPlayer== 1) tempo =2;
+        else tempo = 1;
+        if(colorByPlayer[plateau[coordo].getColor()] == tempo) return false;
+        else return true;
     };
 
     this.initialisationUnePiece = function() {
@@ -97,7 +109,7 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash())) || (!testColor(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash())) || (!testColor(base.hash(),fin.hash())) || (!testColor(base.hash()))) return false;// test position et ligne diagonal hauteur
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
@@ -128,4 +140,8 @@ Lyngk.Engine = function () {
     };
 
     this.getNumPlayer = function() {return numPlayer};
+
+    this.getNbPiece = function() {
+        return nbPieces;
+    }
 };

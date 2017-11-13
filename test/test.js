@@ -298,7 +298,7 @@ LyngkTestCase.prototype.testhist25 = function () {
 };
 */
  //histoire 27
-LyngkTestCase.prototype.testhist26 = function () {
+LyngkTestCase.prototype.testhist27 = function () {
     var plateau = new Lyngk.Engine();
     var coordo1 = new Lyngk.Coordinates('A', 3);
     var coordo2 = new Lyngk.Coordinates('B', 3);
@@ -316,7 +316,7 @@ LyngkTestCase.prototype.testhist26 = function () {
     plateau.put(coordo7,Lyngk.Color.IVORY);
     plateau.put(coordo9,Lyngk.Color.RED);
 
-    plateau.put(coordo3,Lyngk.Color.BLUE);
+    plateau.put(coordo3,Lyngk.Color.RED);
     plateau.put(coordo4,Lyngk.Color.WHITE);
     plateau.put(coordo6,Lyngk.Color.GREEN);
     plateau.put(coordo8,Lyngk.Color.BLACK);
@@ -333,7 +333,7 @@ LyngkTestCase.prototype.testhist26 = function () {
 };
 
  // histoire 28
-LyngkTestCase.prototype.testhist27 = function () {
+LyngkTestCase.prototype.testhist28 = function () {
     var plateau = new Lyngk.Engine();
     var coordo1 = new Lyngk.Coordinates('B', 5);
     var coordo2 = new Lyngk.Coordinates('B', 4);
@@ -343,5 +343,10 @@ LyngkTestCase.prototype.testhist27 = function () {
     plateau.put(coordo3,Lyngk.Color.RED);
     plateau.claim(Lyngk.Color.RED);
     plateau.move(coordo1,coordo2);
-    assertFalse(plateau.move(coordo2,coordo3));
+    assertFalse(plateau.move(coordo3,coordo2));
+};
+
+ //histoire 29
+LyngkTestCase.prototype.testhist29 = function () {
+    var plateau = new Lyngk.Engine();
 };
