@@ -288,5 +288,12 @@ LyngkTestCase.prototype.testhist25 = function () {
 
  // histoire 26
 LyngkTestCase.prototype.testhist25 = function () {
-    
-}
+    var plateau = new Lyngk.Engine();
+    var coordo1 = new Lyngk.Coordinates('A', 3);
+    var coordo2 = new Lyngk.Coordinates('B', 3);
+    var coordo3 = new Lyngk.Coordinates('C', 3);
+    assertTrue(plateau.claim(Lyngk.Color.RED));
+    plateau.move(coordo1,coordo2);
+    assertFalse(plateau.claim(Lyngk.Color.RED))
+    assertTrue(plateau.claim(Lyngk.Color.GREEN));
+};
