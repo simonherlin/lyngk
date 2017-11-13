@@ -6,6 +6,7 @@ Lyngk.Color = {BLACK: 0, IVORY: 1, BLUE: 2, RED: 3, GREEN: 4, WHITE: 5};
 Lyngk.Engine = function () {
     //var key= []; var value=[];
     var numPlayer;
+    var colorByPlayer = [];
     var plateau = new Object();
     plateau = {};
 
@@ -13,6 +14,9 @@ Lyngk.Engine = function () {
         numPlayer = 1;
         for (var i = 0; i < Lyngk.grid.length; i++) {
             plateau[Lyngk.grid[i]] = new Lyngk.Intersection();
+        }
+        for (var i =0; i < 6;i++){
+            colorByPlayer[i]=0;
         }
     };
     Init();
@@ -102,6 +106,12 @@ Lyngk.Engine = function () {
     this.put = function(coordonee,couleur){
         if (coordonee.is_valid() && plateau[coordonee.hash()].getHauteur()<4)
             plateau[coordonee.hash()].pose(couleur);
+    };
+
+    this.claim = function(color){
+        if (colorByPlayer[color] != 0)return false;
+        colorByPlayer[color] = this.getNumPlayer();
+        return true;
     };
 
     this.getPlat = function(){
