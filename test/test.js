@@ -291,9 +291,40 @@ LyngkTestCase.prototype.testhist25 = function () {
     var plateau = new Lyngk.Engine();
     var coordo1 = new Lyngk.Coordinates('A', 3);
     var coordo2 = new Lyngk.Coordinates('B', 3);
-    var coordo3 = new Lyngk.Coordinates('C', 3);
     assertTrue(plateau.claim(Lyngk.Color.RED));
     plateau.move(coordo1,coordo2);
     assertFalse(plateau.claim(Lyngk.Color.RED))
     assertTrue(plateau.claim(Lyngk.Color.GREEN));
+};
+
+ //histoire 27
+LyngkTestCase.prototype.testhist26 = function () {
+    var plateau = new Lyngk.Engine();
+    var coordo1 = new Lyngk.Coordinates('A', 3);
+    var coordo2 = new Lyngk.Coordinates('B', 3);
+    var coordo3 = new Lyngk.Coordinates('H', 6);
+    var coordo4 = new Lyngk.Coordinates('G', 5);
+    var coordo5 = new Lyngk.Coordinates('C', 3);
+    var coordo6 = new Lyngk.Coordinates('G', 6);
+    var coordo7 = new Lyngk.Coordinates('C', 2);
+    var coordo8 = new Lyngk.Coordinates('H', 7);
+    var coordo9 = new Lyngk.Coordinates('D', 2);
+    plateau.put(coordo1,Lyngk.Color.BLUE);
+    plateau.put(coordo2,Lyngk.Color.GREEN);
+    plateau.put(coordo5,Lyngk.Color.BLACK);
+    plateau.put(coordo7,Lyngk.Color.IVORY);
+    plateau.put(coordo9,Lyngk.Color.RED);
+    plateau.put(coordo3,Lyngk.Color.BLUE);
+    plateau.put(coordo4,Lyngk.Color.WHITE);
+    plateau.put(coordo6,Lyngk.Color.GREEN);
+    plateau.put(coordo8,Lyngk.Color.BLACK);
+    plateau.claim(Lyngk.Color.BLUE);
+    plateau.move(coordo1,coordo2);
+    plateau.move(coordo3,coordo4);
+    plateau.move(coordo2,coordo5);
+    plateau.move(coordo4,coordo6);
+    plateau.move(coordo5,coordo7);
+    plateau.move(coordo6,coordo8);
+    plateau.move(coordo7,coordo9);
+    assertTrue(plateau.nbPointJoueur(1) == 1);
 };
