@@ -7,17 +7,15 @@ Lyngk.Engine = function () {
     //var key= []; var value=[];
     var numPlayer;
     var colorByPlayer = [];
+    var pointByPlayer = [];
     var plateau = new Object();
     plateau = {};
 
     var Init = function () {
         numPlayer = 1;
-        for (var i = 0; i < Lyngk.grid.length; i++) {
-            plateau[Lyngk.grid[i]] = new Lyngk.Intersection();
-        }
-        for (var i =0; i < 6;i++){
-            colorByPlayer[i]=0;
-        }
+        for (var i = 0; i < Lyngk.grid.length; i++) { plateau[Lyngk.grid[i]] = new Lyngk.Intersection(); }
+        for (var i =0; i < 6;i++)   { colorByPlayer[i]=0; }
+        for (var i =1; i<3;i++)     { pointByPlayer[i] = 0; }
     };
     Init();
 
@@ -62,6 +60,12 @@ Lyngk.Engine = function () {
       else numPlayer--;
     };
 
+    function point(coordo){
+        if (plateau[coordo.hash()].getHauteur() == 5)
+            if (colorByPlayer[plateau[coordo.hash()].getColor()] == numPlayer)
+                pointByPlayer[numPlayer]++;
+    };
+
     this.initialisationUnePiece = function() {
         for (var key in plateau) {
             if (plateau.hasOwnProperty(key)) {
@@ -99,6 +103,7 @@ Lyngk.Engine = function () {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
             plateau[base.hash()].remove();
         }
+        point(fin);
         player();
         return true;
     };
@@ -110,8 +115,12 @@ Lyngk.Engine = function () {
 
     this.claim = function(color){
         if (colorByPlayer[color] != 0)return false;
-        colorByPlayer[color] = this.getNumPlayer();
+        colorByPlayer[color] = numPlayer;
         return true;
+    };
+
+    this.nbPointJoueur = function(nb){
+        return pointByPlayer[nb];
     };
 
     this.getPlat = function(){

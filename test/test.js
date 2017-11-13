@@ -248,7 +248,7 @@ LyngkTestCase.prototype.testhist22 = function () {
     assertTrue(plateau.move(coordo4,coordo5));
     assertFalse(plateau.move(coordo2,coordo5));
 };
-*/
+
 
  //histoire 23
 LyngkTestCase.prototype.testhist23 = function () {
@@ -296,7 +296,7 @@ LyngkTestCase.prototype.testhist25 = function () {
     assertFalse(plateau.claim(Lyngk.Color.RED))
     assertTrue(plateau.claim(Lyngk.Color.GREEN));
 };
-
+*/
  //histoire 27
 LyngkTestCase.prototype.testhist26 = function () {
     var plateau = new Lyngk.Engine();
@@ -309,11 +309,13 @@ LyngkTestCase.prototype.testhist26 = function () {
     var coordo7 = new Lyngk.Coordinates('C', 2);
     var coordo8 = new Lyngk.Coordinates('H', 7);
     var coordo9 = new Lyngk.Coordinates('D', 2);
+
     plateau.put(coordo1,Lyngk.Color.BLUE);
     plateau.put(coordo2,Lyngk.Color.GREEN);
     plateau.put(coordo5,Lyngk.Color.BLACK);
     plateau.put(coordo7,Lyngk.Color.IVORY);
     plateau.put(coordo9,Lyngk.Color.RED);
+
     plateau.put(coordo3,Lyngk.Color.BLUE);
     plateau.put(coordo4,Lyngk.Color.WHITE);
     plateau.put(coordo6,Lyngk.Color.GREEN);
