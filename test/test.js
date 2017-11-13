@@ -365,3 +365,4 @@ LyngkTestCase.prototype.testhist30 = function () {
     assertEquals(plateau.nbPossibilite(), 32);
 };
 
+//

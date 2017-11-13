@@ -54,6 +54,7 @@ Lyngk.Engine = function () {
                     if (plateau[debut].getCouleurChoix(i) != Lyngk.Color.WHITE) return false;
             }
         }
+        if(colorByPlayer[plateau[debut].getColor()] == joueurAdverse()) return false;
         return true;
     };
 
@@ -70,12 +71,10 @@ Lyngk.Engine = function () {
             }
     };
 
-    function testColor(coordo){
+    function joueurAdverse() {
         var tempo;
-        if (numPlayer== 1) tempo =2;
-        else tempo = 1;
-        if(colorByPlayer[plateau[coordo].getColor()] == tempo) return false;
-        else return true;
+        (numPlayer== 1)? tempo =2:tempo = 1;
+        return tempo;
     };
 
     this.initialisationUnePiece = function() {
@@ -109,7 +108,7 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash())) || (!testColor(base.hash(),fin.hash())) || (!testColor(base.hash()))) return false;// test position et ligne diagonal hauteur
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash())) || (!testColor(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
@@ -133,6 +132,15 @@ Lyngk.Engine = function () {
 
     this.nbPointJoueur = function(nb){
         return pointByPlayer[nb];
+    };
+
+    this.nbPossibilite = function() {
+        var adversaire = joueurAdverse(), nbPossibilite=0;
+        for (var i=0; i< Lyngk.grid.length;i++){
+            debugger;
+                if (plateau[Lyngk.grid[i]].getHauteur() != 0 && colorByPlayer[plateau[Lyngk.grid[i]].getColor()] != adversaire && plateau[Lyngk.grid[i]].getColor() != Lyngk.Color.WHITE) nbPossibilite++;
+        }
+        return nbPossibilite;
     };
 
     this.getPlat = function(){
