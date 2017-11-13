@@ -2,7 +2,8 @@
 //Math.seedrandom('isidis-i2l');
 
 var LyngkTestCase = TestCase("LyngkTestCase");
-/*
+
+Math.seedrandom("testlyngk");
 
  // Partie 1
  // histoire 1
@@ -296,7 +297,7 @@ LyngkTestCase.prototype.testhist25 = function () {
     assertFalse(plateau.claim(Lyngk.Color.RED))
     assertTrue(plateau.claim(Lyngk.Color.GREEN));
 };
-*/
+
  //histoire 27
 LyngkTestCase.prototype.testhist27 = function () {
     var plateau = new Lyngk.Engine();
@@ -349,4 +350,18 @@ LyngkTestCase.prototype.testhist28 = function () {
  //histoire 29
 LyngkTestCase.prototype.testhist29 = function () {
     var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    assertTrue(plateau.nbPossibilite()== 40);
 };
+
+//histoire 30
+LyngkTestCase.prototype.testhist30 = function () {
+    var plateau = new Lyngk.Engine();
+    plateau.initialisationMultiCouleur();
+    var coordo1 = new Lyngk.Coordinates('A', 3);
+    var coordo2 = new Lyngk.Coordinates('B', 3);
+    plateau.claim(Lyngk.Color.BLACK);
+    plateau.move(coordo1, coordo2);
+    assertEquals(plateau.nbPossibilite(), 32);
+};
+
