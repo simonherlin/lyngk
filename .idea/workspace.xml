@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f506860d-029c-4c7b-b0ed-d6abeea88d1b" name="Default" comment="">
+    <list default="true" id="f506860d-029c-4c7b-b0ed-d6abeea88d1b" name="Default" comment="legere modification test (nom methode non approprié)&#10;creation numero joueur initialiser et changer a achaque move">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Engine.js" afterPath="$PROJECT_DIR$/src/Engine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Intersection.js" afterPath="$PROJECT_DIR$/src/Intersection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,60 +21,74 @@
       <file leaf-file-name="Coordinates.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Coordinates.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Engine.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Engine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="85" column="17" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+            <state relative-caret-position="442">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <element signature="e#252#386#0" expanded="false" />
-                <element signature="e#438#860#0" expanded="false" />
-                <element signature="e#896#1500#0" expanded="false" />
-                <element signature="e#1538#1660#0" expanded="false" />
-                <element signature="e#1701#1813#0" expanded="false" />
-                <element signature="e#2247#2413#0" expanded="false" />
-                <element signature="e#2444#2654#0" expanded="false" />
-                <element signature="e#2706#3138#0" expanded="false" />
-                <element signature="e#3917#4055#0" expanded="false" />
+                <element signature="e#324#396#0" expanded="false" />
+                <element signature="e#445#511#0" expanded="false" />
+                <element signature="e#548#589#0" expanded="false" />
+                <element signature="e#629#794#0" expanded="false" />
+                <element signature="e#824#911#0" expanded="false" />
+                <element signature="e#940#982#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Engine.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Engine.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-251">
+              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+              <folding>
+                <element signature="e#268#425#0" expanded="false" />
+                <element signature="e#477#899#0" expanded="false" />
+                <element signature="e#935#1539#0" expanded="false" />
+                <element signature="e#1577#1699#0" expanded="false" />
+                <element signature="e#1740#1852#0" expanded="false" />
+                <element signature="e#1888#2238#0" expanded="false" />
+                <element signature="e#2262#2332#0" expanded="false" />
+                <element signature="e#2380#2546#0" expanded="false" />
+                <element signature="e#2577#2787#0" expanded="false" />
+                <element signature="e#2839#3271#0" expanded="false" />
+                <element signature="e#3309#3929#0" expanded="false" />
+                <element signature="e#3974#4112#0" expanded="false" />
+                <element signature="e#4144#4175#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="257" column="42" lean-forward="true" selection-start-line="257" selection-start-column="42" selection-end-line="257" selection-end-column="42" />
+            <state relative-caret-position="310">
+              <caret line="285" column="42" lean-forward="false" selection-start-line="285" selection-start-column="42" selection-end-line="285" selection-end-column="42" />
               <folding>
-                <marker date="1510507094246" expanded="false" signature="175:275" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="341:450" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="516:628" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="694:812" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="878:1062" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="1128:1230" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="1556:1767" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="1833:2077" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="2146:2458" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="2527:2642" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="2709:3367" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="3448:3651" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="3719:3976" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="4044:4613" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="4681:5347" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="5416:5699" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="5768:6396" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="6465:7045" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="7112:7790" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="7857:8182" ph="{...}" />
-                <marker date="1510507094246" expanded="false" signature="8248:8765" ph="{...}" />
+                <element signature="e#8831#9470#0" expanded="false" />
+                <element signature="e#9537#9623#0" expanded="false" />
+                <marker date="1510553957204" expanded="false" signature="176:276" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="342:451" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="517:629" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="695:813" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="879:1063" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="1129:1231" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="1297:1489" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="1556:1767" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="1833:2077" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="2145:2457" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="2525:2640" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="2707:3365" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="3446:3649" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="3717:3974" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="4042:4611" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="4679:5345" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="5413:5696" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="5764:6392" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="6460:7040" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="7107:7785" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="7852:8177" ph="{...}" />
+                <marker date="1510553957204" expanded="false" signature="8244:8761" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -83,7 +97,7 @@
       <file leaf-file-name="Intersection.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Intersection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="191">
               <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <element signature="e#206#243#0" expanded="false" />
@@ -172,6 +186,9 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,9 +210,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,7 +360,8 @@
       <workItem from="1510396564506" duration="100000" />
       <workItem from="1510396686003" duration="1812000" />
       <workItem from="1510482418209" duration="2001000" />
-      <workItem from="1510484446244" duration="5207000" />
+      <workItem from="1510484446244" duration="7496000" />
+      <workItem from="1510513666072" duration="1998000" />
     </task>
     <task id="LOCAL-00001" summary="création test histoire un">
       <created>1506687482036</created>
@@ -411,22 +426,24 @@
       <option name="project" value="LOCAL" />
       <updated>1510507130728</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Création histoire 23">
+      <created>1510507163248</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1510507163248</updated>
+    </task>
+    <task id="LOCAL-00011" summary="legere modification test (nom methode non approprié)&#10;creation numero joueur initialiser et changer a a chaque move reussi de joueur">
+      <created>1510553306879</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1510553306879</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Tests - 2017.11.12 at 18h 03m 05s.xml">
-      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
-    </history-entry>
-    <history-entry file="Tests - 2017.11.12 at 18h 03m 10s.xml">
-      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
-    </history-entry>
-    <history-entry file="Tests - 2017.11.12 at 18h 04m 52s.xml">
-      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
-    </history-entry>
-    <history-entry file="Tests - 2017.11.12 at 18h 12m 12s.xml">
-      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
-    </history-entry>
     <history-entry file="Tests - 2017.11.12 at 18h 12m 58s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
@@ -445,9 +462,21 @@
     <history-entry file="Tests - 2017.11.12 at 18h 17m 51s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
+    <history-entry file="Tests - 2017.11.12 at 18h 49m 51s.xml">
+      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
+    </history-entry>
+    <history-entry file="Tests - 2017.11.13 at 07h 06m 19s.xml">
+      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
+    </history-entry>
+    <history-entry file="Tests - 2017.11.13 at 07h 06m 21s.xml">
+      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
+    </history-entry>
+    <history-entry file="Tests - 2017.11.13 at 07h 19m 24s.xml">
+      <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36478000" />
+    <option name="totallyTimeSpent" value="40765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1368" height="740" extended-state="6" />
@@ -461,8 +490,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492113" sideWeight="0.5139092" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32492113" sideWeight="0.48609078" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32492113" sideWeight="0.48609078" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -472,8 +501,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -527,10 +556,13 @@
     <MESSAGE value="Création test histoire 3" />
     <MESSAGE value="Création test test 23" />
     <MESSAGE value="Création histoire 23" />
-    <option name="LAST_COMMIT_MESSAGE" value="Création histoire 23" />
+    <MESSAGE value="legere modification test (nom methode non approprié)&#10;creation numero joueur initialiser et changer a a chaque move reussi de joueur" />
+    <option name="LAST_COMMIT_MESSAGE" value="legere modification test (nom methode non approprié)&#10;creation numero joueur initialiser et changer a a chaque move reussi de joueur" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -634,19 +666,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Coordinates.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jsTestDriver.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -654,13 +677,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Intersection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="191">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <element signature="e#206#243#0" expanded="false" />
@@ -676,50 +698,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test.js">
+    <entry file="file://$PROJECT_DIR$/src/Coordinates.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="257" column="42" lean-forward="true" selection-start-line="257" selection-start-column="42" selection-end-line="257" selection-end-column="42" />
+        <state relative-caret-position="442">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <marker date="1510507094246" expanded="false" signature="175:275" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="341:450" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="516:628" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="694:812" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="878:1062" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="1128:1230" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="1556:1767" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="1833:2077" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="2146:2458" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="2527:2642" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="2709:3367" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="3448:3651" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="3719:3976" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="4044:4613" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="4681:5347" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="5416:5699" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="5768:6396" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="6465:7045" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="7112:7790" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="7857:8182" ph="{...}" />
-            <marker date="1510507094246" expanded="false" signature="8248:8765" ph="{...}" />
+            <element signature="e#324#396#0" expanded="false" />
+            <element signature="e#445#511#0" expanded="false" />
+            <element signature="e#548#589#0" expanded="false" />
+            <element signature="e#629#794#0" expanded="false" />
+            <element signature="e#824#911#0" expanded="false" />
+            <element signature="e#940#982#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Engine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="85" column="17" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+        <state relative-caret-position="-251">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
           <folding>
-            <element signature="e#252#386#0" expanded="false" />
-            <element signature="e#438#860#0" expanded="false" />
-            <element signature="e#896#1500#0" expanded="false" />
-            <element signature="e#1538#1660#0" expanded="false" />
-            <element signature="e#1701#1813#0" expanded="false" />
-            <element signature="e#2247#2413#0" expanded="false" />
-            <element signature="e#2444#2654#0" expanded="false" />
-            <element signature="e#2706#3138#0" expanded="false" />
-            <element signature="e#3917#4055#0" expanded="false" />
+            <element signature="e#268#425#0" expanded="false" />
+            <element signature="e#477#899#0" expanded="false" />
+            <element signature="e#935#1539#0" expanded="false" />
+            <element signature="e#1577#1699#0" expanded="false" />
+            <element signature="e#1740#1852#0" expanded="false" />
+            <element signature="e#1888#2238#0" expanded="false" />
+            <element signature="e#2262#2332#0" expanded="false" />
+            <element signature="e#2380#2546#0" expanded="false" />
+            <element signature="e#2577#2787#0" expanded="false" />
+            <element signature="e#2839#3271#0" expanded="false" />
+            <element signature="e#3309#3929#0" expanded="false" />
+            <element signature="e#3974#4112#0" expanded="false" />
+            <element signature="e#4144#4175#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="285" column="42" lean-forward="false" selection-start-line="285" selection-start-column="42" selection-end-line="285" selection-end-column="42" />
+          <folding>
+            <element signature="e#8831#9470#0" expanded="false" />
+            <element signature="e#9537#9623#0" expanded="false" />
+            <marker date="1510553957204" expanded="false" signature="176:276" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="342:451" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="517:629" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="695:813" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="879:1063" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="1129:1231" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="1297:1489" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="1556:1767" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="1833:2077" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="2145:2457" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="2525:2640" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="2707:3365" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="3446:3649" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="3717:3974" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="4042:4611" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="4679:5345" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="5413:5696" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="5764:6392" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="6460:7040" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="7107:7785" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="7852:8177" ph="{...}" />
+            <marker date="1510553957204" expanded="false" signature="8244:8761" ph="{...}" />
           </folding>
         </state>
       </provider>

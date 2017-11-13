@@ -3,6 +3,7 @@
 
 var LyngkTestCase = TestCase("LyngkTestCase");
 /*
+
  // Partie 1
  // histoire 1
  LyngkTestCase.prototype.testStory1 = function() {
@@ -41,7 +42,7 @@ var LyngkTestCase = TestCase("LyngkTestCase");
      assertTrue(coordinates.hash() === 13);
  };
 
- // hsitoire 7
+ //histoire 7
  LyngkTestCase.prototype.testStory7 = function() {
      //var coordinates = new Lyngk.Coordinates('A', 3);
      var intersection = new Lyngk.Intersection(/!*coordinates*!/);
@@ -65,7 +66,7 @@ var LyngkTestCase = TestCase("LyngkTestCase");
      assertEquals(intersect.getColor(),Lyngk.Color.RED);
  };
 
- // histoire 10
+ //histoire 10
  LyngkTestCase.prototype.testhist10 = function () {
      var intersect = new Lyngk.Intersection();
      intersect.pose(Lyngk.Color.BLUE);
@@ -76,7 +77,7 @@ var LyngkTestCase = TestCase("LyngkTestCase");
      assertEquals(intersect.getState(),Lyngk.State.FULL_STACK);
  };
 
- // histoire 11
+ //histoire 11
  LyngkTestCase.prototype.testhist11 = function () {
      var plateau = new Lyngk.Engine();
      plateau.initialisationUnePiece();
@@ -160,7 +161,7 @@ var LyngkTestCase = TestCase("LyngkTestCase");
          && jeu[coordo3.hash()].getHauteur() == 3);
  };
 
- // histoire 17
+ //histoire 17
  LyngkTestCase.prototype.testhist17 = function () {
      var plateau = new Lyngk.Engine();
      plateau.initialisationMultiCouleur();
@@ -170,7 +171,7 @@ var LyngkTestCase = TestCase("LyngkTestCase");
      assertFalse(plateau.move(coordo2,coordo1));
  };
 
- // histoire 18
+ //histoire 18
  LyngkTestCase.prototype.testhist18 = function () {
      var plateau = new Lyngk.Engine();
      plateau.initialisationMultiCouleur();
@@ -187,7 +188,7 @@ var LyngkTestCase = TestCase("LyngkTestCase");
      assertFalse(plateau.move(coordo3,coordo3));
  };
 
- // histoire 19
+ //histoire 19
  LyngkTestCase.prototype.testhist19 = function () {
      var plateau = new Lyngk.Engine();
      plateau.initialisationMultiCouleur();
@@ -203,7 +204,7 @@ var LyngkTestCase = TestCase("LyngkTestCase");
      assertFalse(plateau.move(coordo5,coordo6));
  };
 
-// histoire 20
+ //histoire 20
 LyngkTestCase.prototype.testhist20 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
@@ -222,7 +223,7 @@ LyngkTestCase.prototype.testhist20 = function () {
     assertFalse(plateau.move(coordo3,coordo4));
 };
 
-// histoire 21
+ //histoire 21
 LyngkTestCase.prototype.testhist21 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
@@ -233,7 +234,7 @@ LyngkTestCase.prototype.testhist21 = function () {
     assertFalse(plateau.move(coordo3,coordo2));
 };
 
-//histoire 22
+ //histoire 22
 LyngkTestCase.prototype.testhist22 = function () {
     var plateau = new Lyngk.Engine();
     plateau.initialisationMultiCouleur();
@@ -248,7 +249,8 @@ LyngkTestCase.prototype.testhist22 = function () {
     assertFalse(plateau.move(coordo2,coordo5));
 };
 */
-// histoire 23
+
+ //histoire 23
 LyngkTestCase.prototype.testhist23 = function () {
     var plateau = new Lyngk.Engine();
     var coordo1 = new Lyngk.Coordinates('I', 7);
@@ -266,8 +268,20 @@ LyngkTestCase.prototype.testhist23 = function () {
     assertFalse(plateau.move(coordo3,coordo4));
 };
 
-//histoire 24
+ //histoire 24
 LyngkTestCase.prototype.testhist24 = function () {
     var plateau = new Lyngk.Engine();
     assertTrue(plateau.getNumPlayer() == 1);
+};
+
+ //histoire 25
+LyngkTestCase.prototype.testhist25 = function () {
+    var plateau = new Lyngk.Engine();
+    var coordo1 = new Lyngk.Coordinates('I', 7);
+    var coordo2 = new Lyngk.Coordinates('H', 6);
+    plateau.put(coordo1,Lyngk.Color.BLUE);
+    plateau.put(coordo2,Lyngk.Color.WHITE);
+    assertTrue(plateau.getNumPlayer() == 1);
+    plateau.move(coordo1,coordo2)
+    assertTrue(plateau.getNumPlayer() == 2);
 };
