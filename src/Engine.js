@@ -37,6 +37,55 @@ Lyngk.Engine = function () {
         return false;
     };
 
+/*    function testPieceAvant(debut,fin){
+        var resultat = Math.abs(fin.hash()-debut.hash());
+        if (resultat<10) return verifDecimal(resultat,debut,fin);
+        if ((fin - Math.floor(fin/10)*10) == (debut - Math.floor(debut/10)*10)) return verifDizaine(resultat,debut,fin);
+        if (((Math.floor(resultat/10)) == (resultat - Math.floor(resultat/10)*10))) return verifDiagonal(resultat,fin);
+    };
+
+    function verifDiagonal(nb,debut,fin){
+        var dizaine = Round(nb/10,0), unite = nb- dizaine*10, temp;
+        for (var i =1;i<nb;i++){
+            if (fin.hash() - debut.hash() < 0)
+                if (((fin.hash() - debut.hash()) + Round((fin.hash() - debut.hash())/10,0)*10 )<0)
+                    temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64-i),debut.getLigne()-i);
+                else
+                    temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64-i),debut.getLigne()+i);
+            else
+                if (((fin.hash() - debut.hash()) - Round((fin.hash() - debut.hash())/10,0)*10 )<0)
+                    temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64+i),debut.getLigne()-i);
+                else
+                    temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64+i),debut.getLigne()+i);
+            if (plateau[temp.hash()].getState() != Lyngk.State.VACANT) return false;
+        }
+        return true;
+    };*/
+
+    function verifDizaine(nb, debut,fin){
+        var dizaine = nb/10,temp;
+        for (var i =1;i<dizaine;i++){
+            if ((fin.hash() - debut.hash()) > 0)
+                temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64+i),debut.getLigne());
+            else
+                temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64-i),debut.getLigne());
+            if (plateau[temp.hash()].getState() != Lyngk.State.VACANT) return false;
+        }
+        return true;
+    };
+
+    function verifDecimal(nb, debut,fin){
+        var temp;
+        for (var i =1;i<nb;i++){
+            if ((fin.hash() - debut.hash()) > 0)
+                temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64),debut.getLigne()+i);
+            else
+                temp = new Lyngk.Coordinates(String.fromCharCode(debut.getColonne()+64),debut.getLigne()-i);
+            if (plateau[temp.hash()].getState() != Lyngk.State.VACANT) return false;
+        }
+        return true;
+    };
+
     function testHauteur(debut,fin){
         if ((plateau[debut].getHauteur() + plateau[fin].getHauteur()) <=5) return true;
         else return false;
@@ -98,9 +147,7 @@ Lyngk.Engine = function () {
         for (var key in plateau) {
             if (plateau.hasOwnProperty(key)) {
                 var randomCouleur;
-                do{
-                    randomCouleur = Math.floor(Math.random() * 6);
-                }while(couleurDispo[randomCouleur] <= 0);
+                do{  randomCouleur = Math.floor(Math.random() * 6); }while(couleurDispo[randomCouleur] <= 0);
                 couleurDispo[randomCouleur]--;
                 plateau[key].pose(randomCouleur);
             }
@@ -108,7 +155,7 @@ Lyngk.Engine = function () {
     };
 
     this.move = function(base, fin){
-        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash())) || (!testColor(base.hash(),fin.hash()))) return false;// test position et ligne diagonal hauteur
+        if (!(testPosition(base, fin)) || !(testLigne(base.hash(), fin.hash())) || !(testDifHauteur(base.hash(),fin.hash())) || (!testHauteur(base.hash(),fin.hash())) || (!testColor(base.hash(),fin.hash())) /*|| (!testPieceAvant(base,fin))*/) return false;// test position et ligne diagonal hauteur
         var hauteur =  plateau[base.hash()].getHauteur(); // obliger pour garder la meme hauteur car hauteur change quand on retire des pieces
         for (var i=0;i<hauteur;i++) {
             plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
@@ -137,10 +184,21 @@ Lyngk.Engine = function () {
     this.nbPossibilite = function() {
         var adversaire = joueurAdverse(), nbPossibilite=0;
         for (var i=0; i< Lyngk.grid.length;i++){
-            debugger;
-                if (plateau[Lyngk.grid[i]].getHauteur() != 0 && colorByPlayer[plateau[Lyngk.grid[i]].getColor()] != adversaire && plateau[Lyngk.grid[i]].getColor() != Lyngk.Color.WHITE) nbPossibilite++;
+                if (plateau[Lyngk.grid[i]].getHauteur() > 0 && colorByPlayer[plateau[Lyngk.grid[i]].getColor()] != adversaire && plateau[Lyngk.grid[i]].getColor() != Lyngk.Color.WHITE) nbPossibilite++;
         }
         return nbPossibilite;
+    };
+
+    this.nbPossibilitePosition = function (coordo) {
+        var nbPossibilité=0, adversaire = joueurAdverse();
+        var k = coordo.tabCoordo();
+        for (var i=0;i<k.length;i++){
+            debugger;
+            if ((k[i].is_valid()))
+                if (plateau[k[i].hash()].getHauteur() > 0 && colorByPlayer[plateau[k[i].hash()].getColor()] != adversaire && plateau[k[i].hash()].getColor() != plateau[coordo.hash()].getColor())
+                    nbPossibilité++;
+        }
+        return nbPossibilité;
     };
 
     this.getPlat = function(){

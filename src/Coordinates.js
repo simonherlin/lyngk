@@ -13,7 +13,6 @@ Lyngk.grid =
 Lyngk.Coordinates = function (c, l) {
     var lignes;
     var colonnes;
-    var grid;
 
      var Init = function(c,l){
         colonnes = (c.charCodeAt(0))-65 + 1;
@@ -46,18 +45,17 @@ Lyngk.Coordinates = function (c, l) {
         return colonnes*10+lignes;
     };
 
-    this.tabGrid = function() {
-        var tabGrid = [];
+    this.tabCoordo = function(){
+        var tab = [];
+        tab[0] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64+0),lignes+1);
+        tab[1] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64+1),lignes+0);
+        tab[2] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64+1),lignes+1);
+        tab[3] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64+0),lignes-1);
+        tab[4] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64-1),lignes+0);
+        tab[5] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64-1),lignes-1);
+        return tab;
+    };
 
-        [13,
-            22,23,24,25,
-            31,32,33,34,35,36,37,
-            42,43,44,45,46,47,
-            52,53,54,55,56,57,58,
-            63,64,65,66,67,68,
-            73,74,75,76,77,78,79,
-            85,86,87,88,
-            97
-        ];
-    }
+    this.getLigne = function(){return lignes};
+    this.getColonne = function(){return colonnes};
 };
