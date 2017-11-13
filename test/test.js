@@ -285,3 +285,8 @@ LyngkTestCase.prototype.testhist25 = function () {
     plateau.move(coordo1,coordo2)
     assertTrue(plateau.getNumPlayer() == 2);
 };
+
+ // histoire 26
+LyngkTestCase.prototype.testhist25 = function () {
+    
+}
