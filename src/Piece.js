@@ -2,7 +2,7 @@
 
 Lyngk.Piece = function (c) {
     var color = c;
-    this.getColor=function(){
+    this.getColor = function () {
         return color;
     };
 };

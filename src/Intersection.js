@@ -11,7 +11,7 @@ Lyngk.Intersection = function () {
     };
 
     function valuePose() {
-        if (nbPieces.length ==0 ){
+        if (nbPieces.length ===0 ){
             state = Lyngk.State.ONE_PIECE;
         }
         else{
@@ -22,40 +22,48 @@ Lyngk.Intersection = function () {
                 state = Lyngk.State.FULL_STACK;
             }
         }
-    };
+    }
 
     function valueRemove() {
-        if (nbPieces.length ==0 || nbPieces.length == undefined){
-            state = Lyngk.State.VACANT;
+        if (nbPieces.length === 0 || nbPieces.length === undefined) {
+            valueVacant();
         }
-        else{
-            if(nbPieces.length == 1){
-                state = Lyngk.State.ONE_PIECE;
+        else {
+            valueNoVacant();
+        }
+    }
+
+    function valueVacant() {
+        state = Lyngk.State.VACANT;
+    }
+
+    function valueNoVacant() {
+        if(nbPieces.length === 1){
+            state = Lyngk.State.ONE_PIECE;
+        }
+        else
+        {
+            if (nbPieces.length < 4) {
+                state = Lyngk.State.STACK;
             }
-            else
-            {
-                if (nbPieces.length < 4) {
-                    state = Lyngk.State.STACK;
-                }
-                else {
-                    state = Lyngk.State.FULL_STACK;
-                }
+            else {
+                state = Lyngk.State.FULL_STACK;
             }
         }
-    };
+    }
 
     this.pose = function(couleur){
         valuePose();
         nbPieces.push(new Lyngk.Piece(couleur));
     };
 
-    this.remove = function(){
+    this.remove = function (){
         nbPieces.shift();
         valueRemove();
     };
 
-    this.getColor = function(){
-        return nbPieces[nbPieces.length -1].getColor();
+    this.getColor = function () {
+        return nbPieces[nbPieces.length - 1].getColor();
     };
 
     this.getFirstColor = function(){
