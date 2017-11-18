@@ -10,6 +10,32 @@ Lyngk.Intersection = function () {
                 return state;
     };
 
+    this.pose = function(couleur){
+        valuePose();
+        nbPieces.push(new Lyngk.Piece(couleur));
+    };
+
+    this.remove = function (){
+        nbPieces.shift();
+        valueRemove();
+    };
+
+    this.getColor = function () {
+        return nbPieces[nbPieces.length - 1].getColor();
+    };
+
+    this.getFirstColor = function(){
+        return nbPieces[0].getColor();
+    };
+
+    this.getCouleurChoix = function(nb){
+        return nbPieces[nb].getColor();
+    };
+
+    this.getHauteur = function(){
+        return nbPieces.length;
+    };
+
     function valuePose() {
         if (nbPieces.length ===0 ){
             state = Lyngk.State.ONE_PIECE;
@@ -51,30 +77,4 @@ Lyngk.Intersection = function () {
             }
         }
     }
-
-    this.pose = function(couleur){
-        valuePose();
-        nbPieces.push(new Lyngk.Piece(couleur));
-    };
-
-    this.remove = function (){
-        nbPieces.shift();
-        valueRemove();
-    };
-
-    this.getColor = function () {
-        return nbPieces[nbPieces.length - 1].getColor();
-    };
-
-    this.getFirstColor = function(){
-        return nbPieces[0].getColor();
-    };
-
-    this.getCouleurChoix = function(nb){
-        return nbPieces[nb].getColor();
-    };
-
-    this.getHauteur = function(){
-        return nbPieces.length;
-    };
 };

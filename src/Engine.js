@@ -23,6 +23,102 @@ Lyngk.Engine = function () {
     };
     Init();
 
+    this.initialisationUnePiece = function() {
+        for (var key in plateau) {
+            if (plateau.hasOwnProperty(key)) {
+                plateau[key].pose(Lyngk.Color.BLUE);
+            }
+        }
+    };
+
+    this.full = function () {
+        for (var key in plateau){
+            verifFull(key);
+        }
+        return true;
+    };
+
+    this.initialisationMultiCouleur = function() {
+        var couleurDispo = [8,8,8,8,8,3];
+        for (var key in plateau) {
+            randomColor(key, couleurDispo);
+        }
+    };
+
+    this.move = function(base, fin){
+        if (!this.testMove(base,fin)){
+            return false;
+        }
+        var hauteur =  plateau[base.hash()].getHauteur();
+        for (var i=0;i<hauteur;i++) {
+            plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
+            plateau[base.hash()].remove();
+        }
+        point(fin);
+        player();
+        return true;
+    };
+
+    this.testMove = function(base,fin){
+         if (!testPositionLigne(base,fin)){
+            return false;
+        }
+        var heigh = testAllHauteur(base,fin);
+        var color = testColor(base.hash(),fin.hash());
+        return ( heigh && color);
+    };
+
+    this.put = function(coordonee,couleur){
+        if (coordonee.isValid() && plateau[coordonee.hash()].getHauteur()<4)
+            plateau[coordonee.hash()].pose(couleur);
+    };
+
+    this.claim = function(color){
+        if (colorByPlayer[color] != 0)return false;
+        colorByPlayer[color] = numPlayer;
+        return true;
+    };
+
+    this.nbPointJoueur = function(nb){
+        return pointByPlayer[nb];
+    };
+
+    this.nbPossibilite = function() {
+        var adversaire = joueurAdverse(), nbPossibilite=0;
+        for (var i=0; i< Lyngk.grid.length;i++){
+            var coordo = Lyngk.grid[i];
+            if (plateau[coordo].getHauteur() > 0 &&
+                colorByPlayer[plateau[coordo].getColor()] != adversaire &&
+                plateau[coordo].getColor() != Lyngk.Color.WHITE) {
+                nbPossibilite++;
+            }
+        }
+        return nbPossibilite;
+    };
+
+    this.nbPossibilitePosition = function (coordo) {
+        var nbPossibilite=0, adversaire = joueurAdverse();
+        var cas = coordo.tabCoordo();
+        for (var i=0;i<cas.length;i++){
+            if (testPossibilitePosition(cas, i, adversaire, coordo)){
+                nbPossibilite++;
+            }
+        }
+        return nbPossibilite;
+    };
+
+    this.getPlat = function(){
+        return plateau;
+    };
+
+    this.getNumPlayer = function() {
+        return numPlayer;
+    };
+
+    this.getNbPiece = function() {
+        return nbPieces;
+    };
+
     function testPosition(debut, fin){
         if (debut.isValid() && fin.isValid()){
             if (verifPosition(debut.hash(),fin.hash())){
@@ -88,8 +184,8 @@ Lyngk.Engine = function () {
     }
 
     function testDifHauteur(debut,fin){
-      if (plateau[debut].getHauteur() < plateau[fin].getHauteur()) return false;
-      else return true;
+        if (plateau[debut].getHauteur() < plateau[fin].getHauteur()) return false;
+        else return true;
     }
 
     function testColor(debut,fin){
@@ -130,8 +226,8 @@ Lyngk.Engine = function () {
     }
 
     function player(){
-      if (numPlayer == 1) numPlayer++;
-      else numPlayer--;
+        if (numPlayer == 1) numPlayer++;
+        else numPlayer--;
     }
 
     function point(coordo){
@@ -153,35 +249,29 @@ Lyngk.Engine = function () {
         return tempo;
     }
 
-    this.initialisationUnePiece = function() {
-        for (var key in plateau) {
-            if (plateau.hasOwnProperty(key)) {
-                plateau[key].pose(Lyngk.Color.BLUE);
-            }
+    function testPossibilitePosition(cas, i, adversaire, coordo){
+        var local = cas[i].hash();
+        if ((cas[i].isValid())){
+            return testHeighColor(local, adversaire, coordo.hash());
         }
-    };
-
-    this.full = function () {
-        for (var key in plateau){
-            verifFull(key);
-        }
-        return true;
-    };
-
-    function verifFull(key){
-        if (plateau.hasOwnProperty(key)){
-            if (plateau[key].getState() != Lyngk.State.ONE_PIECE){
-                return false;
-            }
-        }
+        return false;
     }
 
-    this.initialisationMultiCouleur = function() {
-        var couleurDispo = [8,8,8,8,8,3];
-        for (var key in plateau) {
-            randomColor(key, couleurDispo);
-        }
-    };
+    function testHeighColor (local, adversaire, posi){
+        var heigh = plateau[local].getHauteur() > 0;
+        var adColor = colorByPlayer[plateau[local].getColor()] != adversaire;
+        var nearColor = plateau[local].getColor() != plateau[posi].getColor();
+        return ( heigh && adColor && nearColor);
+    }
+
+    function testPositionLigne(base,fin){
+        return ((testPosition(base,fin))&&(testLigne(base,fin)));
+    }
+
+    function testAllHauteur(base,fin){
+        var begin = base.hash(), end = fin.hash();
+        return (testDifHauteur(begin,end)) && (testHauteur(begin,end));
+    }
 
     function randomColor(key, couleurDispo){
         if (plateau.hasOwnProperty(key)) {
@@ -194,102 +284,11 @@ Lyngk.Engine = function () {
         }
     }
 
-    this.move = function(base, fin){
-        if (!this.testMove(base,fin)){
-            return false;
-        }
-        var hauteur =  plateau[base.hash()].getHauteur();
-        for (var i=0;i<hauteur;i++) {
-            plateau[fin.hash()].pose(plateau[base.hash()].getFirstColor());
-            plateau[base.hash()].remove();
-        }
-        point(fin);
-        player();
-        return true;
-    };
-
-    this.testMove = function(base,fin){
-         if (!testPositionLigne(base,fin)){
-            return false;
-        }
-        var heigh = testAllHauteur(base,fin);
-        var color = testColor(base.hash(),fin.hash());
-        return ( heigh && color);
-    };
-
-    function testPositionLigne(base,fin){
-        return ((testPosition(base,fin))&&(testLigne(base,fin)));
-    }
-
-    function testAllHauteur(base,fin){
-        var begin = base.hash(), end = fin.hash();
-        return (testDifHauteur(begin,end)) && (testHauteur(begin,end));
-    }
-
-    this.put = function(coordonee,couleur){
-        if (coordonee.isValid() && plateau[coordonee.hash()].getHauteur()<4)
-            plateau[coordonee.hash()].pose(couleur);
-    };
-
-    this.claim = function(color){
-        if (colorByPlayer[color] != 0)return false;
-        colorByPlayer[color] = numPlayer;
-        return true;
-    };
-
-    this.nbPointJoueur = function(nb){
-        return pointByPlayer[nb];
-    };
-
-    this.nbPossibilite = function() {
-        var adversaire = joueurAdverse(), nbPossibilite=0;
-        for (var i=0; i< Lyngk.grid.length;i++){
-            var coordo = Lyngk.grid[i];
-            if (plateau[coordo].getHauteur() > 0 &&
-                colorByPlayer[plateau[coordo].getColor()] != adversaire &&
-                plateau[coordo].getColor() != Lyngk.Color.WHITE) {
-                nbPossibilite++;
+    function verifFull(key){
+        if (plateau.hasOwnProperty(key)){
+            if (plateau[key].getState() != Lyngk.State.ONE_PIECE){
+                return false;
             }
         }
-        return nbPossibilite;
-    };
-
-    this.nbPossibilitePosition = function (coordo) {
-        var nbPossibilite=0, adversaire = joueurAdverse();
-        var cas = coordo.tabCoordo();
-        for (var i=0;i<cas.length;i++){
-            if (testPossibilitePosition(cas, i, adversaire, coordo)){
-                nbPossibilite++;
-            }
-        }
-        return nbPossibilite;
-    };
-
-    function testPossibilitePosition(cas, i, adversaire, coordo){
-        var local = cas[i].hash();
-        if ((cas[i].isValid())){
-            return testHeighColor(local, adversaire, coordo.hash());
-          }
-        return false;
     }
-
-    function testHeighColor (local, adversaire, posi){
-        var heigh = plateau[local].getHauteur() > 0;
-        var adColor = colorByPlayer[plateau[local].getColor()] != adversaire;
-        var nearColor = plateau[local].getColor() != plateau[posi].getColor();
-        return ( heigh && adColor && nearColor);
-    }
-
-    this.getPlat = function(){
-        return plateau;
-    };
-
-    this.getNumPlayer = function() {
-        return numPlayer;
-    };
-
-    this.getNbPiece = function() {
-        return nbPieces;
-    };
-
 };
