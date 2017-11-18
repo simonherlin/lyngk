@@ -370,3 +370,9 @@ LyngkTestCase.prototype.testhist31 = function () {
     assertEquals(plateau.nbPossibilitePosition(coordo2), 4);
 
 };
+
+LyngkTestCase.prototype.testhist32 = function () {
+    var engine = new Lyngk.Engine();
+    engine.initialisationMultiCouleur();
+
+};

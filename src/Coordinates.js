@@ -47,16 +47,20 @@ Lyngk.Coordinates = function (c, l) {
 
     this.tabCoordo = function(){
         var tab = [];
-        tab[0] = new Lyngk.Coordinates(String.fromCharCode(colonnes + 64 + 0), lignes + 1);
-        tab[1] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64+1),lignes+0);
-        tab[2] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64+1),lignes+1);
-        tab[3] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64+0),lignes-1);
-        tab[4] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64-1),lignes+0);
-        tab[5] = new Lyngk.Coordinates(String.fromCharCode(colonnes+64-1),lignes-1);
+        tab[0] = new Lyngk.Coordinates(returnCharCoordo(0), lignes + 1);
+        tab[1] = new Lyngk.Coordinates(returnCharCoordo(1),lignes+0);
+        tab[2] = new Lyngk.Coordinates(returnCharCoordo(1),lignes+1);
+        tab[3] = new Lyngk.Coordinates(returnCharCoordo(0),lignes-1);
+        tab[4] = new Lyngk.Coordinates(returnCharCoordo(-1),lignes+0);
+        tab[5] = new Lyngk.Coordinates(returnCharCoordo(-1),lignes-1);
         return tab;
     };
 
     this.getLigne = function(){return lignes;};
 
     this.getColonne = function(){return colonnes;};
+
+    function returnCharCoordo(column){
+        return String.fromCharCode(colonnes + 64 + column);
+    }
 };
