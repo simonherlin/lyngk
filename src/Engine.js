@@ -2,7 +2,6 @@
 
 // enums definition
 Lyngk.Color = {BLACK: 0, IVORY: 1, BLUE: 2, RED: 3, GREEN: 4, WHITE: 5};
-Lyngk.LinesColomns = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 Lyngk.Engine = function () {
     var numPlayer;
@@ -119,6 +118,75 @@ Lyngk.Engine = function () {
         return nbPieces;
     };
 
+    this.searchCordoToMove = function(coordo) {
+        var adversaire = joueurAdverse();
+        var cas = coordo.tabCoordo();
+        for (var i=0;i<cas.length;i++){
+            if (testPossibilitePosition(cas, i, adversaire, coordo)){
+                if (cas[i].isValid()){
+                    return cas[i];
+                }
+            }
+        }
+    };
+
+    this.searchColorPlayer = function() {
+        var colorPlayer = false,coordo = 0;
+        for (coordo = 0;coordo < Lyngk.grid.length;coordo++){
+            var tempCordo = Lyngk.grid[coordo];
+            var colorGrid = plateau[tempCordo].getColor();
+            var result = step2SearchColorPlayer(tempCordo, colorGrid, coordo);
+            var height = plateau[tempCordo].getHauteur() < 5;
+            if (result >0 && height){
+                return tempCordo;
+            }
+        }
+        return -1;
+    };
+
+    this.screenScore = function(){
+        numPlayer = 1;
+        var pointP1 = pointByPlayer[1];
+        numPlayer = 2;
+        var pointP2 = pointByPlayer[2];
+        screen(pointP1,pointP2);
+    };
+
+    function screen(p1,p2){
+        console.log("joueur 1 : "+p1);
+        console.log("joueur 2 : "+p2);
+    }
+
+    function step2SearchColorPlayer(tempCordo, colorGrid, coordo) {
+        var color = colorByPlayer[colorGrid] != 0;
+        var noAdversaire = colorByPlayer[colorGrid] != joueurAdverse();
+        if (color && noAdversaire){
+            return verifDispo(tempCordo);
+        }
+    }
+
+    function verifDispo(tempCordo){
+        var dizaine = Math.floor(tempCordo/10);
+        var unite = tempCordo - (dizaine*10);
+
+        var coordo = new Lyngk.Coordinates(
+            String.fromCharCode(dizaine+64), unite);
+            return nbPossibilitePosition2(coordo);
+    }
+
+    function nbPossibilitePosition2 (coordo) {
+        var nbPossibilite=0, adversaire = joueurAdverse();
+        var cas = coordo.tabCoordo();
+        for (var i=0;i<cas.length;i++){
+            if (testPossibilitePosition(cas, i, adversaire, coordo)){
+                if (coordo.isValid()) {
+                    nbPossibilite++;
+                }
+            }
+        }
+        return nbPossibilite;
+    }
+
     function testPosition(debut, fin){
         if (debut.isValid() && fin.isValid()){
             if (verifPosition(debut.hash(),fin.hash())){
@@ -184,8 +252,12 @@ Lyngk.Engine = function () {
     }
 
     function testDifHauteur(debut,fin){
-        if (plateau[debut].getHauteur() < plateau[fin].getHauteur()) return false;
-        else return true;
+        if (plateau[debut].getHauteur() < plateau[fin].getHauteur()) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     function testColor(debut,fin){

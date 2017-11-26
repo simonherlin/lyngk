@@ -6,16 +6,16 @@ Lyngk.Intersection = function () {
     var state = Lyngk.State.VACANT;
     var nbPieces = [];
 
-    this.getState = function() {
-                return state;
+    this.getState = function () {
+        return state;
     };
 
-    this.pose = function(couleur){
+    this.pose = function (couleur) {
         valuePose();
         nbPieces.push(new Lyngk.Piece(couleur));
     };
 
-    this.remove = function (){
+    this.remove = function () {
         nbPieces.shift();
         valueRemove();
     };
@@ -24,27 +24,25 @@ Lyngk.Intersection = function () {
         return nbPieces[nbPieces.length - 1].getColor();
     };
 
-    this.getFirstColor = function(){
+    this.getFirstColor = function () {
         return nbPieces[0].getColor();
     };
 
-    this.getCouleurChoix = function(nb){
+    this.getCouleurChoix = function (nb) {
         return nbPieces[nb].getColor();
     };
 
-    this.getHauteur = function(){
+    this.getHauteur = function () {
         return nbPieces.length;
     };
 
     function valuePose() {
-        if (nbPieces.length ===0 ){
+        if (nbPieces.length === 0) {
             state = Lyngk.State.ONE_PIECE;
-        }
-        else{
-            if (nbPieces.length < 4){
+        } else {
+            if (nbPieces.length < 4) {
                 state = Lyngk.State.STACK;
-            }
-            else{
+            } else {
                 state = Lyngk.State.FULL_STACK;
             }
         }
@@ -53,8 +51,7 @@ Lyngk.Intersection = function () {
     function valueRemove() {
         if (nbPieces.length === 0 || nbPieces.length === undefined) {
             valueVacant();
-        }
-        else {
+        } else {
             valueNoVacant();
         }
     }
@@ -64,15 +61,12 @@ Lyngk.Intersection = function () {
     }
 
     function valueNoVacant() {
-        if(nbPieces.length === 1){
+        if (nbPieces.length === 1) {
             state = Lyngk.State.ONE_PIECE;
-        }
-        else
-        {
+        } else {
             if (nbPieces.length < 4) {
                 state = Lyngk.State.STACK;
-            }
-            else {
+            } else {
                 state = Lyngk.State.FULL_STACK;
             }
         }
